@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href='/static/bootstrap.css' />
+    <link rel="stylesheet" href='/static/main.css' />
+</head>
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
+<script>
+    function loadDoc() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var data = JSON.parse(this.responseText)
+            var server = ''
+            for (server in data){
+                if (data[server] == '1') {
+                    document.getElementById("ping-circle-"+server).innerHTML = '<div class="circle-green"></div>';
+                }
+                else {
+                    document.getElementById("ping-circle-"+server).innerHTML = '<div class="circle-red"></div>';
+                }
+            }
+        }
+      };
+      xhttp.open("GET", "server_states", true);
+      xhttp.send(),1
+    }
+    var interval = 5 * 1000
+    loadDoc()
+    setInterval(loadDoc, interval)
+    </script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WolWeb</title>
+<body class="bg-dark text-light">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>WolWeb<h4 class="text-muted">Wake-On-Lan</h4></h1>
+            </div>
+        </div>
+    </div>
+    <div class="container" >
+        <div class="row">
+            <div class="col-auto">
+                <button class="btn btn-sm" type="button" onclick="loadDoc()">Refresh Servers</button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        {% for server in list_servers %}
+        <form action="." method="POST">
+            <div class=" row mt-2 pt-1 pb-1 bg-secondary rounded">
+                <div class="col-auto col-md-auto col-sm-auto col-xs-auto">
+                    <div class="row">
+                        <div id='ping-circle-{{server}}' class="col-1 pr-2">
+                            <div class="circle-red"></div>
+                        </div>
+                        <div class="col pl-1 pt-2">
+                            <p class="text-uppercase">{{server}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto col-md-auto col-sm-auto col-xs-auto">
+                    <button class="text-light bg-success btn btn-lg" role="button" type="submit" name="submit_{{server}}" value="ON">ON</button>
+                    <button class="text-light bg-danger btn btn-lg" role="button" type="submit" name="submit_{{server}}" value="OFF">OFF</button>
+                </div>
+                {% if on != '' and server == selected_server %}
+                <div class="col-auto col-md-auto col-sm-auto col-xs-auto">
+                    {% if on == True %}
+                        <p class="p-1 text-dark bg-gray border border-dark rounded">{{text}}</p>
+                    {% else %}
+                        <p class="p-1 text-danger bg-gray border border-dark rounded">{{text}}</p>
+                    {% endif %}
+                    {% if error %}
+                        <p class="p-1 text-danger bg-gray border border-dark rounded">ERROR: {{error}}</p>
+                    {% endif %}
+
+                </div>
+                {% endif %}
+            </div>
+        </form>
+        {% endfor %}
+    </div>
+    
+</body>
+</html>

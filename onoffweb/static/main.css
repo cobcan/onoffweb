@@ -1,0 +1,105 @@
+
+/* CSS */
+
+.button-24-on {
+  background: #00f311;
+  border: 1px solid #00f311;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.button-24-on:hover,
+.button-24-on:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #00f311;
+}
+
+.button-24-on:active {
+  opacity: .5;
+}
+
+
+.button-24-off {
+    background: #FF4742;
+    border: 1px solid #FF4742;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #000000;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+  }
+  
+  .button-24-off:hover,
+  .button-24-off:active {
+    background-color: initial;
+    background-position: 0 0;
+    color: #FF4742;
+  }
+  
+  .button-24-off:active {
+    opacity: .5;
+  }
+
+  .div-table{
+    display:table;         
+    width:auto;         
+    border-spacing:1em;/*cellspacing:poor IE support for  this*/
+  }
+  .div-table-row{
+    display:table-row;
+    width:auto;
+    clear:both;
+  }
+  .div-table-col{
+    float:left;/*fix for  buggy browsers*/
+    display:table-column;
+    text-align: center;
+    display: flex;
+    width:4em;
+  }
+  .circle-red {
+    height: 10px;
+    width: 10px;
+    background-color: #FF4742;
+    border-radius: 50%;
+  }
+  .circle-green {
+    height: 10px;
+    width: 10px;
+    background-color: #00f311;
+    border-radius: 50%;
+  }
