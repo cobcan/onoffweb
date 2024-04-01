@@ -1,11 +1,11 @@
 servers:
-- name: algiz
-  mac: ec:8e:b5:77:a3:e8
-  address: algiz.asfosnet.com
-  ssh_user: root
-  ssh_key_filename: wol_key
-- name: isaz
-  mac: 78:ac:c0:bc:dd:6d
-  address: isaz.asfosnet.com
-  ssh_user: root
-  ssh_key_filename: wol_key
+- name: server1
+  mac: 12:12:12:12:12:12
+  address: server1.domain.example
+  ssh_user: user_of_server1_with_access_to_suspend
+  ssh_key_filename: user_private_key
+- name: server2
+  mac: 34:34:34:34:34:34
+  address: server2.domain.example
+  ssh_user: user_of_server2_with_access_to_suspend
+  ssh_key_filename: user_private_key
